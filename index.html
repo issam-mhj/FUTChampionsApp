@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FUTCHAMPIONS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .scrollable-content {
+        height: calc(100vh - 60px);
+      }
+    </style>
+  </head>
+  <body class="bg-[#1C325B] flex">
+    <div class="w-[20%] max-h-screen-xl h-[100vh] overflow-y-auto" id="cards">
+      <div class="bg-[#6A669D] h-[60px] flex justify-center items-center">
+        <p class="font-bold text-[#E5E3D4] text-2xl">List of players</p>
+      </div>
+      <div style="height: calc(100vh-60px)" class="overflow-y-auto">
+        <div>
+          <div class="bg-[#1C325B]">
+            <div
+              class="bg-[#D9D9D9] py-[7px] flex justify-center font-semibold"
+            >
+              Goal keepers
+            </div>
+          </div>
+          <div class="playersGK bg-[#9ABF80]">
+            <ul class="px-4 py-5">
+              <li>
+                <div class="flex justify-between">
+                  <p>Ter Stegen</p>
+                  <p>GK</p>
+                </div>
+              </li>
+              <li>
+                <div class="flex justify-between">
+                  <p>Penya</p>
+                  <p>GK</p>
+                </div>
+              </li>
+              <li>
+                <div class="flex justify-between">
+                  <p>Szesesni</p>
+                  <p>GK</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="bg-[#1C325B]">
+            <div
+              class="bg-[#D9D9D9] py-[7px] flex justify-center font-semibold"
+            >
+              Defense
+            </div>
+          </div>
+          <div class="playersGK bg-[#9ABF80]">
+            <ul class="px-4 py-5">
+              <li>
+                <div class="flex justify-between">
+                  <p>Araujo</p>
+                  <p>CB</p>
+                </div>
+              </li>
+              <li>
+                <div class="flex justify-between">
+                  <p>Cubarsi</p>
+                  <p>CB</p>
+                </div>
+              </li>
+              <li>
+                <div class="flex justify-between">
+                  <p>Christensen</p>
+                  <p>CB</p>
+                </div>
+              </li>
+              <li>
+                <div class="flex justify-between">
+                  <p>Martinez</p>
+                  <p>CB</p>
+                </div>
+              </li>
+              <li>
+                <div class="flex justify-between">
+                  <p>Balde</p>
+                  <p>LB</p>
+                </div>
+              </li>
+              <li>
+                <div class="flex justify-between">
+                  <p>Martin</p>
+                  <p>LB</p>
+                </div>
+              </li>
+              <li>
+                <div class="flex justify-between">
+                  <p>Koundé</p>
+                  <p>RB</p>
+                </div>
+              </li>
+              <li>
+                <div class="flex justify-between">
+                  <p>fort</p>
+                  <p>RB</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="playersGK bg-[#9ABF80]">
+            <div class="bg-[#1C325B]">
+              <div
+                class="bg-[#D9D9D9] py-[7px] flex justify-center font-semibold"
+              >
+                Midfield
+              </div>
+            </div>
+            <ul class="px-4 py-5">
+              <li>
+                <div class="flex justify-between">
+                  <p>Casado</p>
+                  <p>DM</p>
+                </div>
+              </li>
+              <li>
+                <div class="flex justify-between">
+                  <p>Gavi</p>
+                  <p>CM</p>
+                </div>
+              </li>
+              <li>
+                <div class="flex justify-between">
+                  <p>Pedri</p>
+                  <p>CM</p>
+                </div>
+              </li>
+              <li>
+                <div class="flex justify-between">
+                  <p>De jong</p>
+                  <p>CM</p>
+                </div>
+              </li>
+              <li>
+                <div class="flex justify-between">
+                  <p>Olmo</p>
+                  <p>AM</p>
+                </div>
+              </li>
+              <li>
+                <div class="flex justify-between">
+                  <p>Lopez</p>
+                  <p>AM</p>
+                </div>
+              </li>
+            </ul>
+            <div class="bg-[#1C325B]">
+              <div
+                class="bg-[#D9D9D9] py-[7px] flex justify-center font-semibold"
+              >
+                Forwards
+              </div>
+            </div>
+            <ul class="px-4 py-5">
+              <li>
+                <div class="flex justify-between">
+                  <p>Raphinha</p>
+                  <p>LW</p>
+                </div>
+              </li>
+              <li>
+                <div class="flex justify-between">
+                  <p>Fati</p>
+                  <p>LW</p>
+                </div>
+              </li>
+              <li>
+                <div class="flex justify-between">
+                  <p>Yamal</p>
+                  <p>RW</p>
+                </div>
+              </li>
+              <li>
+                <div class="flex justify-between">
+                  <p>Torres</p>
+                  <p>RW</p>
+                </div>
+              </li>
+              <li>
+                <div class="flex justify-between">
+                  <p>Lewandowski</p>
+                  <p>CF</p>
+                </div>
+              </li>
+              <li>
+                <div class="flex justify-between">
+                  <p>Victor</p>
+                  <p>CF</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="w-[60%] px-[10px]"
+      style="
+        background-image: url('stadium_background.webp');
+        background-position: center;
+        background-attachment: fixed;
+      "
+    >
+      <div
+        class="w-[60%] px-[10px]"
+        style="
+          background-image: url('stadium_background.webp');
+          background-position: center;
+          background-attachment: fixed;
+        "
+      >
+        <div class="mt-20">
+          <div
+            id="circle"
+            class="text-[#4D6939] bg-[#CACACA] h-10 w-10 rounded-full"
+          >
+            <p class="flex justify-center items-center font-bold text-2xl">L</p>
+          </div>
+          <p
+            class="bg-[#9ABF80] p-1 rounded-full text-xs flex justify-center w-12 -mt-2 -ml-1"
+          >
+            4-3-3
+          </p>
+        </div>
+        <div class="ml-2">
+          <div class="flex -mt-20" id="fd">
+            <div
+              class="bg-white w-8 h-8 rounded-full flex items-center ml-52 justify-center font-bold"
+            >
+              LW
+            </div>
+            <div
+              class="bg-white w-8 h-8 rounded-full flex items-center ml-52 justify-center font-bold"
+            >
+              CF
+            </div>
+            <div
+              class="bg-white w-8 h-8 rounded-full flex items-center ml-40 justify-center font-bold"
+            >
+              RW
+            </div>
+          </div>
+
+          <div class="flex justify-between mt-16" id="md">
+            <div
+              class="bg-white w-10 h-10 rounded-full flex items-center ml-52 justify-center font-bold"
+            >
+              CM
+            </div>
+            <div
+              class="bg-white w-10 h-10 rounded-full flex items-center ml-52 mt-14 justify-center font-bold"
+            >
+              DM
+            </div>
+            <div
+              class="bg-white w-10 h-10 rounded-full flex items-center ml-40 justify-center font-bold"
+            >
+              AM
+            </div>
+          </div>
+
+          <div class="flex justify-between mt-20" id="df">
+            <div
+              class="bg-white w-10 h-10 rounded-full flex items-center ml-42 justify-center font-bold"
+            >
+              LB
+            </div>
+            <div
+              class="bg-white w-10 h-10 rounded-full flex items-center mt-14 ml-64 justify-center font-bold"
+            >
+              CB
+            </div>
+            <div
+              class="bg-white w-10 h-10 rounded-full flex items-center mt-14 ml-56 justify-center font-bold"
+            >
+              CB
+            </div>
+            <div
+              class="bg-white w-10 h-10 rounded-full flex items-center ml-64 justify-center font-bold"
+            >
+              RB
+            </div>
+          </div>
+
+          <div class="mt-36 ml-96 flex justify-center">
+            <div
+              class="bg-slate-900 w-10 h-10 rounded-full flex justify-center items-center"
+              id="gk"
+            >
+              <span class="text-white text-2xl font-bold">GK</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w-[20%]">
+      <div class="bg-[#6A669D] h-[60px] flex justify-center items-center mb-6">
+        <p class="font-bold text-[#E5E3D4] text-2xl">List of players</p>
+      </div>
+      <div class="">
+        <div
+          class="bg-[#D9D9D9] py-[7px] flex justify-center font-semibold my-1"
+        >
+          Add A Player
+          <img src="plus.png" alt="plus" class="ml-2 w-[15px] h-[15px]" />
+        </div>
+        <div
+          class="bg-[#D9D9D9] py-[7px] flex justify-center font-semibold my-1"
+        >
+          modify a player
+          <img src="edit.png" alt="plus" class="ml-2 w-[15px] h-[15px]" />
+        </div>
+        <div
+          class="bg-[#D9D9D9] py-[7px] flex justify-center font-semibold my-1"
+        >
+          remove
+          <img src="remove.png" alt="plus" class="ml-2 w-[15px] h-[15px]" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
