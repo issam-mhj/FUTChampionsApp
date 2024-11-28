@@ -13,7 +13,7 @@ const players = [
     passing: 91,
     dribbling: 95,
     defending: 35,
-    physical: 65
+    physical: 65,
   },
   {
     name: "Cristiano Ronaldo",
@@ -29,7 +29,7 @@ const players = [
     passing: 82,
     dribbling: 87,
     defending: 34,
-    physical: 77
+    physical: 77,
   },
   {
     name: "Kevin De Bruyne",
@@ -45,7 +45,7 @@ const players = [
     passing: 93,
     dribbling: 88,
     defending: 64,
-    physical: 78
+    physical: 78,
   },
   {
     name: "Kylian Mbappé",
@@ -61,7 +61,7 @@ const players = [
     passing: 80,
     dribbling: 92,
     defending: 39,
-    physical: 77
+    physical: 77,
   },
   {
     name: "Virgil van Dijk",
@@ -77,7 +77,7 @@ const players = [
     passing: 70,
     dribbling: 72,
     defending: 92,
-    physical: 86
+    physical: 86,
   },
   {
     name: "Antonio Rudiger",
@@ -93,7 +93,7 @@ const players = [
     passing: 73,
     dribbling: 70,
     defending: 86,
-    physical: 86
+    physical: 86,
   },
   {
     name: "Neymar Jr",
@@ -109,7 +109,7 @@ const players = [
     passing: 86,
     dribbling: 94,
     defending: 37,
-    physical: 61
+    physical: 61,
   },
   {
     name: "Mohamed Salah",
@@ -125,7 +125,7 @@ const players = [
     passing: 81,
     dribbling: 90,
     defending: 45,
-    physical: 75
+    physical: 75,
   },
   {
     name: "Joshua Kimmich",
@@ -141,7 +141,7 @@ const players = [
     passing: 88,
     dribbling: 84,
     defending: 84,
-    physical: 81
+    physical: 81,
   },
   {
     name: "Jan Oblak",
@@ -157,7 +157,7 @@ const players = [
     kicking: 78,
     reflexes: 92,
     speed: 50,
-    positioning: 88
+    positioning: 88,
   },
   {
     name: "yassine bouno",
@@ -173,7 +173,7 @@ const players = [
     kicking: 78,
     reflexes: 92,
     speed: 50,
-    positioning: 88
+    positioning: 88,
   },
   {
     name: "hakimi",
@@ -189,129 +189,156 @@ const players = [
     kicking: 78,
     reflexes: 92,
     speed: 50,
-    positioning: 88
-  }
+    positioning: 88,
+  },
 ];
 
 window.localStorage.setItem("players", JSON.stringify(players));
 
-const addPlayer = document.getElementById('add');
-addPlayer.addEventListener('click', function () {});
+// const addPlayer = document.getElementById('add');
+// addPlayer.addEventListener('click', function () {});
 
 function goalK() {
   const playerData = localStorage.getItem("players");
   const playersArray = JSON.parse(playerData);
-  
-  const allGoalkeepers = playersArray.filter(player => player.position === "GK");
-  
-  console.log(allGoalkeepers);
 
-  const ul = document.createElement('ul');
-  ul.classList.add('px-4', 'py-5');
-  
-  allGoalkeepers.forEach(player => {
-    const li = document.createElement('li');
-    
-    const div = document.createElement('div');
-    div.classList.add('flex', 'justify-between');
-    
-    const nameP = document.createElement('p');
+  const allGoalkeepers = playersArray.filter(
+    (player) => player.position === "GK"
+  );
+
+  const gk = document.getElementById("gk");
+  gk.innerHTML = ""; // Clear existing content
+
+  const ul = document.createElement("ul");
+  ul.classList.add("px-4", "py-5");
+
+  allGoalkeepers.forEach((player) => {
+    const li = document.createElement("li");
+
+    const div = document.createElement("div");
+    div.classList.add("flex", "justify-between");
+
+    const nameP = document.createElement("p");
     nameP.textContent = player.name;
-    const positionP = document.createElement('p');
+    const positionP = document.createElement("p");
     positionP.textContent = player.position;
-    
+
     div.appendChild(nameP);
     div.appendChild(positionP);
-    
-    li.appendChild(div); 
+
+    li.appendChild(div);
     ul.appendChild(li);
   });
-  const gk = document.getElementById("gk")
+
   gk.appendChild(ul);
 }
 function defense() {
   const playerData = localStorage.getItem("players");
   const playersArray = JSON.parse(playerData);
-  const allDefenders = playersArray.filter(player => player.position === "CB"||player.position=== "LB"||player.position=== "RB");
 
-  const ul = document.createElement('ul');
-  ul.classList.add('px-4', 'py-5');
-  
-  allDefenders.forEach(player => {
-    const li = document.createElement('li');
-    
-    const div = document.createElement('div');
-    div.classList.add('flex', 'justify-between');
-    
-    const nameP = document.createElement('p');
+  const allDefenders = playersArray.filter(
+    (player) =>
+      player.position === "CB" ||
+      player.position === "LB" ||
+      player.position === "RB"
+  );
+
+  const dfns = document.getElementById("dfns");
+  dfns.innerHTML = ""; // Clear existing content
+
+  const ul = document.createElement("ul");
+  ul.classList.add("px-4", "py-5");
+
+  allDefenders.forEach((player) => {
+    const li = document.createElement("li");
+
+    const div = document.createElement("div");
+    div.classList.add("flex", "justify-between");
+
+    const nameP = document.createElement("p");
     nameP.textContent = player.name;
-    const positionP = document.createElement('p');
+    const positionP = document.createElement("p");
     positionP.textContent = player.position;
-    
+
     div.appendChild(nameP);
     div.appendChild(positionP);
-    
-    li.appendChild(div); 
+
+    li.appendChild(div);
     ul.appendChild(li);
   });
-  const dfns = document.getElementById("dfns");
+
   dfns.appendChild(ul);
 }
 
-function midl(){
+function midl() {
   const playerData = localStorage.getItem("players");
   const playersArray = JSON.parse(playerData);
-  const allDefenders = playersArray.filter(player => player.position === "MD"||player.position=== "CM"||player.position=== "AM");
 
-  const ul = document.createElement('ul');
-  ul.classList.add('px-4', 'py-5');
-  
-  allDefenders.forEach(player => {
-    const li = document.createElement('li');
-    
-    const div = document.createElement('div');
-    div.classList.add('flex', 'justify-between');
-    
-    const nameP = document.createElement('p');
+  const allMidfielders = playersArray.filter(
+    (player) => player.position === "CM" || player.position === "AM"
+  );
+
+  const md = document.getElementById("md");
+  md.innerHTML = "";
+
+  const ul = document.createElement("ul");
+  ul.classList.add("px-4", "py-5");
+
+  allMidfielders.forEach((player) => {
+    const li = document.createElement("li");
+
+    const div = document.createElement("div");
+    div.classList.add("flex", "justify-between");
+
+    const nameP = document.createElement("p");
     nameP.textContent = player.name;
-    const positionP = document.createElement('p');
+    const positionP = document.createElement("p");
     positionP.textContent = player.position;
-    
+
     div.appendChild(nameP);
     div.appendChild(positionP);
-    
-    li.appendChild(div); 
+
+    li.appendChild(div);
     ul.appendChild(li);
   });
-  const md = document.getElementById("md");
+
   md.appendChild(ul);
 }
-function forwd(){
+function forwd() {
   const playerData = localStorage.getItem("players");
   const playersArray = JSON.parse(playerData);
-  const allDefenders = playersArray.filter(player => player.position === "RW"||player.position=== "LW"||player.position=== "ST");
 
-  const ul = document.createElement('ul');
-  ul.classList.add('px-4', 'py-5');
-  
-  allDefenders.forEach(player => {
-    const li = document.createElement('li');
-    
-    const div = document.createElement('div');
-    div.classList.add('flex', 'justify-between');
-    
-    const nameP = document.createElement('p');
+  const allForwards = playersArray.filter(
+    (player) =>
+      player.position === "RW" ||
+      player.position === "LW" ||
+      player.position === "ST"
+  );
+
+  const ST = document.getElementById("st");
+  ST.innerHTML = "";
+
+  const ul = document.createElement("ul");
+  ul.classList.add("px-4", "py-5");
+
+  allForwards.forEach((player) => {
+    const li = document.createElement("li");
+
+    const div = document.createElement("div");
+    div.classList.add("flex", "justify-between");
+
+    const nameP = document.createElement("p");
     nameP.textContent = player.name;
-    const positionP = document.createElement('p');
+    const positionP = document.createElement("p");
     positionP.textContent = player.position;
-    
+
     div.appendChild(nameP);
     div.appendChild(positionP);
-    
-    li.appendChild(div); 
+
+    li.appendChild(div);
     ul.appendChild(li);
   });
-  const ST = document.getElementById("st");
+
   ST.appendChild(ul);
 }
 
@@ -319,3 +346,99 @@ goalK();
 defense();
 midl();
 forwd();
+
+const addPlayer = document.getElementById("add");
+const playerForm = document.getElementById("playerForm");
+const savePlayer = document.getElementById("savePlayer");
+const cancel = document.getElementById("cancel");
+
+addPlayer.addEventListener("click", function () {
+  playerForm.classList.remove("hidden");
+});
+
+cancel.addEventListener("click", function () {
+  playerForm.classList.add("hidden");
+});
+
+savePlayer.addEventListener("click", function () {
+  const name = document.getElementById("playerName").value;
+  const position = document.getElementById("playerPosition").value;
+  const nationality = document.getElementById("playerNationality").value;
+  const club = document.getElementById("playerClub").value;
+  const rating = parseInt(document.getElementById("playerRating").value, 10);
+
+  const newPlayer = {
+    name: name,
+    position: position,
+    nationality: nationality,
+    club: club,
+    rating: rating,
+    pace: 0,
+    shooting: 0,
+    passing: 0,
+    dribbling: 0,
+    defending: 0,
+    physical: 0,
+  };
+
+  function getPlayerData() {
+    const playerData = localStorage.getItem("players");
+    return playerData ? JSON.parse(playerData) : [];
+  }
+
+  const playersArray = getPlayerData();
+  playersArray.push(newPlayer);
+  window.localStorage.setItem("players", JSON.stringify(playersArray));
+
+  playerForm.classList.add("hidden");
+  goalK();
+  defense();
+  midl();
+  forwd();
+});
+
+const glkp = document.getElementById("kp");
+const defensers = document.getElementsByClassName("DFNS");
+const mildf = document.getElementById("MIL");
+const forw = document.getElementById("FRW");
+
+glkp.addEventListener("click", function () {
+  let keeperschoice = document.getElementById("choosePlyr");
+  keeperschoice.classList.remove("hidden");
+
+  const playerData = localStorage.getItem("players");
+  const playersArray = JSON.parse(playerData);
+  const allkeepers = playersArray.filter((player) => player.position === "GK");
+
+  const KP = document.getElementById("ChoiceKp");
+  KP.innerHTML = "";
+
+  const ul = document.createElement("ul");
+  ul.classList.add("px-4", "py-5");
+
+  allkeepers.forEach((player) => {
+    const li = document.createElement("li");
+
+    const div = document.createElement("div");
+    div.classList.add("flex", "justify-between");
+
+    const nameP = document.createElement("p");
+    nameP.textContent = player.name;
+    const positionP = document.createElement("p");
+    positionP.textContent = player.position;
+
+    div.appendChild(nameP);
+    div.appendChild(positionP);
+
+    li.appendChild(div);
+    ul.appendChild(li);
+  });
+
+  KP.appendChild(ul);
+
+  const chooseUrPl = document.getElementById("cancelChoice");
+  chooseUrPl.addEventListener("click", function () {
+    let keeperschoice = document.getElementById("choosePlyr");
+    keeperschoice.classList.add("hidden");
+  });
+});
