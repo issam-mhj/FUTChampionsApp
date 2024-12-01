@@ -5,6 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Apply to all position containers */
+      #ChoiceFR::-webkit-scrollbar,
+      #ChoiceMD::-webkit-scrollbar,
+      #ChoiceDF::-webkit-scrollbar,
+      #ChoiceKp::-webkit-scrollbar {
+        height: 8px;
+      }
+      
+      #ChoiceFR::-webkit-scrollbar-track,
+      #ChoiceMD::-webkit-scrollbar-track,
+      #ChoiceDF::-webkit-scrollbar-track,
+      #ChoiceKp::-webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      
+      #ChoiceFR::-webkit-scrollbar-thumb,
+      #ChoiceMD::-webkit-scrollbar-thumb,
+      #ChoiceDF::-webkit-scrollbar-thumb,
+      #ChoiceKp::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 4px;
+      }
+      
+      #ChoiceFR::-webkit-scrollbar-thumb:hover,
+      #ChoiceMD::-webkit-scrollbar-thumb:hover,
+      #ChoiceDF::-webkit-scrollbar-thumb:hover,
+      #ChoiceKp::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+    </style>
 </head>
 <body>
     <div class="relative flex justify-center items-center">
