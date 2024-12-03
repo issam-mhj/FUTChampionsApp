@@ -15,7 +15,8 @@ document.addEventListener("DOMContentLoaded", function () {
       dribbling: 95,
       defending: 35,
       physical: 65,
-    },{
+    },
+    {
       name: "Alexander-Arnold",
       photo: "https://cdn.sofifa.net/players/231/281/25_120.png",
       position: "RB",
@@ -28,8 +29,9 @@ document.addEventListener("DOMContentLoaded", function () {
       passing: 89,
       dribbling: 80,
       defending: 79,
-      physical: 71
-    },{
+      physical: 71,
+    },
+    {
       name: "Alexander-Arnold",
       photo: "https://cdn.sofifa.net/players/231/281/25_120.png",
       position: "RB",
@@ -42,8 +44,9 @@ document.addEventListener("DOMContentLoaded", function () {
       passing: 89,
       dribbling: 80,
       defending: 79,
-      physical: 71
-    },{
+      physical: 71,
+    },
+    {
       name: "Noussair Mazraoui",
       photo: "https://cdn.sofifa.net/players/236/401/25_120.png",
       position: "LB",
@@ -56,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
       passing: 89,
       dribbling: 80,
       defending: 79,
-      physical: 71
+      physical: 71,
     },
     {
       name: "Cristiano Ronaldo",
@@ -270,7 +273,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.localStorage.setItem("players", JSON.stringify(players));
 
-  let editMode =false;
+  let editMode = false;
 
   function goalK() {
     const playerData = localStorage.getItem("players");
@@ -485,8 +488,12 @@ document.addEventListener("DOMContentLoaded", function () {
         pace: parseInt(document.getElementById("playerPaceAdd").value),
         shooting: parseInt(document.getElementById("playerShootingAdd").value),
         passing: parseInt(document.getElementById("playerPassingAdd").value),
-        dribbling: parseInt(document.getElementById("playerDribblingAdd").value),
-        defending: parseInt(document.getElementById("playerDefendingAdd").value),
+        dribbling: parseInt(
+          document.getElementById("playerDribblingAdd").value
+        ),
+        defending: parseInt(
+          document.getElementById("playerDefendingAdd").value
+        ),
         physical: parseInt(document.getElementById("playerPhysicalAdd").value),
       };
     }
@@ -513,10 +520,6 @@ document.addEventListener("DOMContentLoaded", function () {
     inputs.forEach((input) => (input.value = ""));
     const select = document.querySelectorAll("select");
     select.forEach((input) => (input.value = ""));
-
-    // document.getElementById("playerForm").innerHTML="";
-    // gkFields.classList.add("hidden");
-    // outfieldFields.classList.add("hidden");
     playerForm.classList.add("hidden");
     goalK();
     defense();
@@ -539,6 +542,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // position stad
+
   function createPositionElement(position, player = null) {
     const positionDiv = document.createElement("div");
 
@@ -548,7 +553,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <div class="container relative h-[200px] w-[160px] scale-75 transform cursor-pointer">
           <img src="../badge_gold.webp" class="w-full h-full object-cover">
           <div class="absolute top-8 left-5 font-bold text-base">
-            <h1>${player.rating}</h1>
+            <h1 class="origin">${player.rating}</h1>
             <h1>${position}</h1>
           </div>
           <div class="absolute w-full top-[25%] flex flex-col items-center">
@@ -691,15 +696,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const index = this.dataset.index;
     const name = document.getElementById("playerName").value;
     console.log(document.getElementById("playerName").value);
-    
+
     const photo = document.getElementById("playerPhoto").value;
     const nationality = document.getElementById("playerNationality").value;
     const flag = document.getElementById("playerFlag").value;
     const club = document.getElementById("playerClub").value;
     const logo = document.getElementById("playerLogo").value;
     const position = document.getElementById("playerPosition").value;
-    
-
 
     let playerStats = {};
 
@@ -741,10 +744,10 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(players[index]);
     console.log(editMode);
 
-    if(!editMode){
+    if (!editMode) {
       players.push(updatedPlayer);
-      editMode = false
-    }else{
+      editMode = false;
+    } else {
       players[index] = updatedPlayer;
     }
     localStorage.setItem("players", JSON.stringify(players));
@@ -860,42 +863,42 @@ document.addEventListener("DOMContentLoaded", function () {
       "container relative h-[300px] flex-shrink-0 cursor-pointer hover:opacity-75 transition-opacity clicks";
     playerCard.innerHTML = `	
       <img src="../badge_gold.webp" class="w-52">
-      <div class="font-bold text-xl mx-12 -my-56">
-          <h1>${player.rating||"!"}</h1>
-          <h1>${player.position||"!"}</h1>
+      <div class="font-bold text-xl mx-12 -my-56 ">
+          <h1>${player.rating || "!"}</h1>
+          <h1>${player.position || "!"}</h1>
       </div>
       <div class="absolute w-44 h-44 top-[19%] left-10 my-2 -mx-4 flex flex-col justify-center items-center">
-          <img src="${player.photo||"!"}">
-          <h1 class="font-bold flex justify-center">${player.name||"!"}</h1>
+          <img src="${player.photo || "!"}">
+          <h1 class="font-bold flex justify-center">${player.name || "!"}</h1>
           <div class="flex gap-1 font-bold text-xs">
               <div class="div1 flex flex-col">
                   <h1>PAC</h1>
-                  <h1>${player.pace||"!"}</h1>
+                  <h1>${player.pace || "!"}</h1>
               </div>
               <div class="div2 flex flex-col">
                   <h1>SHO</h1>
-                  <h1>${player.shooting||"!"}</h1>
+                  <h1>${player.shooting || "!"}</h1>
               </div>
               <div class="div3 flex flex-col">
                   <h1>PAS</h1>
-                  <h1>${player.passing||"!"}</h1>
+                  <h1>${player.passing || "!"}</h1>
               </div>
               <div class="div4 flex flex-col">
                   <h1>DRI</h1>
-                  <h1>${player.dribbling||"!"}</h1>
+                  <h1>${player.dribbling || "!"}</h1>
               </div>
               <div class="div5 flex flex-col">
                   <h1>DEF</h1>
-                  <h1>${player.defending||"!"}</h1>
+                  <h1>${player.defending || "!"}</h1>
               </div>
               <div class="div6 flex flex-col">
                   <h1>PHY</h1>
-                  <h1>${player.physical||"!"}</h1>
+                  <h1>${player.physical || "!"}</h1>
               </div>
           </div>
           <div>
-              <img src="${player.flag||"!"}" class="w-5 mx-16 my-1">
-              <img src="${player.logo||"!"}" class="w-5 mx-[95px] -my-[20px]">
+              <img src="${player.flag || "!"}" class="w-5 mx-16 my-1">
+              <img src="${player.logo || "!"}" class="w-5 mx-[95px] -my-[20px]">
           </div>
       </div>`;
 
@@ -1045,7 +1048,7 @@ document.addEventListener("DOMContentLoaded", function () {
     midlElement.classList.add("hidden");
     KP.classList.remove("hidden");
     frElement.classList.add("hidden");
-    def.classList.add("hidden");
+    def.classList.add("hidden");    
   });
 });
 
@@ -1078,7 +1081,6 @@ document.getElementById("deleteButton").addEventListener("click", function () {
     players.splice(index, 1);
     localStorage.setItem("players", JSON.stringify(players));
     document.getElementById("removalForm").classList.add("hidden");
-
   } else {
     alert("Please select a player to remove.");
   }
@@ -1087,6 +1089,85 @@ document.getElementById("deleteButton").addEventListener("click", function () {
 document
   .getElementById("cancelRemoveButton")
   .addEventListener("click", function () {
-    document.getElementById("removalForm").classList.add("hidden"); 
+    document.getElementById("removalForm").classList.add("hidden");
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const playerss = Array.from(document.getElementsByClassName("origin"));
+// console.log(playerss);
+
+// card.addEventListener("click",function(){
+//   culc(players);
+// })
+
+// function culc(players) {
+// let score =0 ;
+// let moy = 0;
+// for(let i=0;i<playerss.length;i++){
+//   score += playerss.score;
+// }
+// if(score!==0){
+//   moy = (score / playerss.length) *100; 
+// }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let cards = Array.from(document.getElementsByClassName("origin"));
+
+console.log(cards);
+
+cards.addEventListener("click",function(){
+  console.log(players.name);
+  
+})
+// cards.forEach("card",function(){
+  
+// })
+
+
+
 
