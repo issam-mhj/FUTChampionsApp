@@ -15,6 +15,48 @@ document.addEventListener("DOMContentLoaded", function () {
       dribbling: 95,
       defending: 35,
       physical: 65,
+    },{
+      name: "Alexander-Arnold",
+      photo: "https://cdn.sofifa.net/players/231/281/25_120.png",
+      position: "RB",
+      nationality: "England",
+      flag: "https://cdn.sofifa.net/flags/gb-eng.png",
+      club: "Liverpool",
+      rating: 87,
+      pace: 76,
+      shooting: 66,
+      passing: 89,
+      dribbling: 80,
+      defending: 79,
+      physical: 71
+    },{
+      name: "Alexander-Arnold",
+      photo: "https://cdn.sofifa.net/players/231/281/25_120.png",
+      position: "RB",
+      nationality: "England",
+      flag: "https://cdn.sofifa.net/flags/gb-eng.png",
+      club: "Liverpool",
+      rating: 87,
+      pace: 76,
+      shooting: 66,
+      passing: 89,
+      dribbling: 80,
+      defending: 79,
+      physical: 71
+    },{
+      name: "Noussair Mazraoui",
+      photo: "https://cdn.sofifa.net/players/236/401/25_120.png",
+      position: "LB",
+      nationality: "Morocco",
+      flag: "https://cdn.sofifa.net/flags/ma.png",
+      club: "Manchester United",
+      rating: 87,
+      pace: 76,
+      shooting: 66,
+      passing: 89,
+      dribbling: 80,
+      defending: 79,
+      physical: 71
     },
     {
       name: "Cristiano Ronaldo",
@@ -24,6 +66,22 @@ document.addEventListener("DOMContentLoaded", function () {
       flag: "https://cdn.sofifa.net/flags/pt.png",
       club: "Al Nassr",
       logo: "https://cdn.sofifa.net/meta/team/2506/120.png",
+      rating: 91,
+      pace: 84,
+      shooting: 94,
+      passing: 82,
+      dribbling: 87,
+      defending: 34,
+      physical: 77,
+    },
+    {
+      name: "N'Golo Kanté",
+      photo: "https://cdn.sofifa.net/players/215/914/25_120.png",
+      position: "DM",
+      nationality: "France",
+      flag: "https://cdn.sofifa.net/flags/fr.png",
+      club: "Al-Ittihad",
+      logo: "https://cdn.sofifa.net/meta/team/476/120.png",
       rating: 91,
       pace: 84,
       shooting: 94,
@@ -104,6 +162,22 @@ document.addEventListener("DOMContentLoaded", function () {
       flag: "https://cdn.sofifa.net/flags/br.png",
       club: "Al-Hilal",
       logo: "https://cdn.sofifa.net/meta/team/7011/120.png",
+      rating: 90,
+      pace: 91,
+      shooting: 83,
+      passing: 86,
+      dribbling: 94,
+      defending: 37,
+      physical: 61,
+    },
+    {
+      name: "Luka Modrić",
+      photo: "https://cdn.sofifa.net/players/177/003/25_120.png",
+      position: "AM",
+      nationality: "Croatia",
+      flag: "https://cdn.sofifa.net/flags/hr.png",
+      club: "Real Madrid",
+      logo: "https://cdn.sofifa.net/meta/team/3468/120.png",
       rating: 90,
       pace: 91,
       shooting: 83,
@@ -196,8 +270,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   window.localStorage.setItem("players", JSON.stringify(players));
 
-  // const addPlayer = document.getElementById('add');
-  // addPlayer.addEventListener('click', function () {});
+  let editMode =false;
 
   function goalK() {
     const playerData = localStorage.getItem("players");
@@ -354,7 +427,7 @@ document.addEventListener("DOMContentLoaded", function () {
   forwd();
   const addPlayer = document.getElementById("add");
   const playerForm = document.getElementById("playerForm");
-  const savePlayer = document.getElementById("savePlayer");
+  const savePlayers = document.getElementById("savePlayers");
   const cancel = document.getElementById("cancel");
 
   addPlayer.addEventListener("click", function () {
@@ -383,14 +456,14 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 
-  savePlayer.addEventListener("click", function () {
-    const name = document.getElementById("playerName").value;
-    const photo = document.getElementById("playerPhoto").value;
-    const nationality = document.getElementById("playerNationality").value;
-    const flag = document.getElementById("playerFlag").value;
-    const club = document.getElementById("playerClub").value;
-    const logo = document.getElementById("playerLogo").value;
-    const position = document.getElementById("playerPosition").value;
+  savePlayers.addEventListener("click", function () {
+    const name = document.getElementById("playerNameAdd").value;
+    const photo = document.getElementById("playerPhotoAdd").value;
+    const nationality = document.getElementById("playerNationalityAdd").value;
+    const flag = document.getElementById("playerFlagAdd").value;
+    const club = document.getElementById("playerClubAdd").value;
+    const logo = document.getElementById("playerLogoAdd").value;
+    const position = document.getElementById("playerPositionAdd").value;
 
     let newPlayer = {};
 
@@ -408,13 +481,13 @@ document.addEventListener("DOMContentLoaded", function () {
       };
     } else {
       newPlayer = {
-        rating: parseInt(document.getElementById("playerRating").value),
-        pace: parseInt(document.getElementById("playerPace").value),
-        shooting: parseInt(document.getElementById("playerShooting").value),
-        passing: parseInt(document.getElementById("playerPassing").value),
-        dribbling: parseInt(document.getElementById("playerDribbling").value),
-        defending: parseInt(document.getElementById("playerDefending").value),
-        physical: parseInt(document.getElementById("playerPhysical").value),
+        rating: parseInt(document.getElementById("playerRatingAdd").value),
+        pace: parseInt(document.getElementById("playerPaceAdd").value),
+        shooting: parseInt(document.getElementById("playerShootingAdd").value),
+        passing: parseInt(document.getElementById("playerPassingAdd").value),
+        dribbling: parseInt(document.getElementById("playerDribblingAdd").value),
+        defending: parseInt(document.getElementById("playerDefendingAdd").value),
+        physical: parseInt(document.getElementById("playerPhysicalAdd").value),
       };
     }
 
@@ -499,15 +572,13 @@ document.addEventListener("DOMContentLoaded", function () {
         const playerData = localStorage.getItem("players");
         const playersArray = playerData ? JSON.parse(playerData) : [];
 
-        const selectedPlayers = getSelectedPlayers();
+        const playerChoiceElement = document.getElementById("ChoiceFR");
+        playerChoiceElement.innerHTML = "";
 
+        const selectedPlayers = getSelectedPlayers();
         const availablePlayers = playersArray.filter(
           (p) => p.position === position && !selectedPlayers.includes(p.name)
         );
-
-        const playerChoiceElement = document.getElementById("ChoiceFR");
-        playerChoiceElement.className = "flex overflow-x-auto gap-4 p-4";
-        playerChoiceElement.innerHTML = "";
 
         availablePlayers.forEach((p) => {
           playerChoiceElement.appendChild(
@@ -545,8 +616,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function displayPlayers() {
     const playerList = document.getElementById("playerList");
-    playerList.innerHTML = "";
+    const savedPlayer = document.getElementById("savePlayer");
+    savedPlayer.addEventListener("click", function () {
+      if (playerList.classList.contains("hidden")) {
+        playerList.classList.remove("hidden");
+      } else {
+        playerList.classList.add("hidden");
+      }
+    });
 
+    playerList.innerHTML = "";
     players.forEach((player, index) => {
       const playerItem = document.createElement("div");
       playerItem.className =
@@ -557,12 +636,17 @@ document.addEventListener("DOMContentLoaded", function () {
     `;
       playerList.appendChild(playerItem);
     });
+    goalK();
+    defense();
+    midl();
+    forwd();
   }
 
   document
     .getElementById("playerList")
     .addEventListener("click", function (event) {
       if (event.target.tagName === "BUTTON") {
+        editMode = true;
         const index = event.target.dataset.index;
         const player = players[index];
 
@@ -606,21 +690,25 @@ document.addEventListener("DOMContentLoaded", function () {
   document.getElementById("savePlayer").addEventListener("click", function () {
     const index = this.dataset.index;
     const name = document.getElementById("playerName").value;
+    console.log(document.getElementById("playerName").value);
+    
     const photo = document.getElementById("playerPhoto").value;
     const nationality = document.getElementById("playerNationality").value;
     const flag = document.getElementById("playerFlag").value;
     const club = document.getElementById("playerClub").value;
     const logo = document.getElementById("playerLogo").value;
     const position = document.getElementById("playerPosition").value;
+    
+
 
     let playerStats = {};
 
     if (position === "GK") {
       playerStats = {
-        rating: parseInt(document.getElementById("playerRatingGK").value),
-        diving: parseInt(document.getElementById("playerDiving").value),
-        handling: parseInt(document.getElementById("playerHandling").value),
-        kicking: parseInt(document.getElementById("playerKicking").value),
+        rating: document.getElementById("playerRatingGK").value,
+        diving: document.getElementById("playerDiving").value,
+        handling: document.getElementById("playerHandling").value,
+        kicking: document.getElementById("playerKicking").value,
         reflexes: parseInt(document.getElementById("playerReflexes").value),
         speed: parseInt(document.getElementById("playerSpeed").value),
         positioning: parseInt(
@@ -649,16 +737,24 @@ document.addEventListener("DOMContentLoaded", function () {
       position,
       ...playerStats,
     };
+    console.log(updatedPlayer);
+    console.log(players[index]);
+    console.log(editMode);
 
-    if (index !== undefined) {
+    if(!editMode){
+      players.push(updatedPlayer);
+      editMode = false
+    }else{
       players[index] = updatedPlayer;
     }
-    const local = JSON.parse(localStorage.getItem("players"));
-    local.setItem(updatedPlayer);
-    console.log(local);
+    localStorage.setItem("players", JSON.stringify(players));
     displayPlayers();
     clearForm();
     document.getElementById("playerForm").classList.add("hidden");
+    goalK();
+    defense();
+    midl();
+    forwd();
   });
 
   function clearForm() {
@@ -761,57 +857,55 @@ document.addEventListener("DOMContentLoaded", function () {
   function createPlayerCard(player, position, originalPositionDiv) {
     const playerCard = document.createElement("div");
     playerCard.className =
-      "container relative h-[300px] flex-shrink-0 cursor-pointer hover:opacity-75 transition-opacity";
+      "container relative h-[300px] flex-shrink-0 cursor-pointer hover:opacity-75 transition-opacity clicks";
     playerCard.innerHTML = `	
       <img src="../badge_gold.webp" class="w-52">
       <div class="font-bold text-xl mx-12 -my-56">
-          <h1>${player.rating}</h1>
-          <h1>${player.position}</h1>
+          <h1>${player.rating||"!"}</h1>
+          <h1>${player.position||"!"}</h1>
       </div>
       <div class="absolute w-44 h-44 top-[19%] left-10 my-2 -mx-4 flex flex-col justify-center items-center">
-          <img src="${player.photo}">
-          <h1 class="font-bold flex justify-center">${player.name}</h1>
+          <img src="${player.photo||"!"}">
+          <h1 class="font-bold flex justify-center">${player.name||"!"}</h1>
           <div class="flex gap-1 font-bold text-xs">
               <div class="div1 flex flex-col">
                   <h1>PAC</h1>
-                  <h1>${player.pace}</h1>
+                  <h1>${player.pace||"!"}</h1>
               </div>
               <div class="div2 flex flex-col">
                   <h1>SHO</h1>
-                  <h1>${player.shooting}</h1>
+                  <h1>${player.shooting||"!"}</h1>
               </div>
               <div class="div3 flex flex-col">
                   <h1>PAS</h1>
-                  <h1>${player.passing}</h1>
+                  <h1>${player.passing||"!"}</h1>
               </div>
               <div class="div4 flex flex-col">
                   <h1>DRI</h1>
-                  <h1>${player.dribbling}</h1>
+                  <h1>${player.dribbling||"!"}</h1>
               </div>
               <div class="div5 flex flex-col">
                   <h1>DEF</h1>
-                  <h1>${player.defending}</h1>
+                  <h1>${player.defending||"!"}</h1>
               </div>
               <div class="div6 flex flex-col">
                   <h1>PHY</h1>
-                  <h1>${player.physical}</h1>
+                  <h1>${player.physical||"!"}</h1>
               </div>
           </div>
           <div>
-              <img src="${player.flag}" class="w-5 mx-16 my-1">
-              <img src="${player.logo}" class="w-5 mx-[95px] -my-[20px]">
+              <img src="${player.flag||"!"}" class="w-5 mx-16 my-1">
+              <img src="${player.logo||"!"}" class="w-5 mx-[95px] -my-[20px]">
           </div>
       </div>`;
 
     playerCard.addEventListener("click", () => {
       const newPositionElement = createPositionElement(position, player);
-
       const computedStyle = window.getComputedStyle(originalPositionDiv);
       newPositionElement.style.position = "absolute";
       newPositionElement.style.left = computedStyle.left;
       newPositionElement.style.top = computedStyle.top;
       originalPositionDiv.replaceWith(newPositionElement);
-
       document.getElementById("choosePlyr").classList.add("hidden");
     });
 
@@ -821,6 +915,7 @@ document.addEventListener("DOMContentLoaded", function () {
   forw.forEach((frw) => {
     frw.addEventListener("click", function () {
       const choosePlyr = document.getElementById("choosePlyr");
+      const playerCard = Array.from(document.getElementsByClassName("clicks"));
       choosePlyr.classList.remove("hidden");
       const playerData = localStorage.getItem("players");
       const playersArray = playerData ? JSON.parse(playerData) : [];
@@ -835,14 +930,14 @@ document.addEventListener("DOMContentLoaded", function () {
       const def = document.getElementById("ChoiceDF");
       const goalElement = document.getElementById("ChoiceKp");
       const cancelChoice = document.getElementById("cancelChoice");
-      
+
       frElement.className = "flex overflow-x-auto gap-4 p-4";
       frElement.innerHTML = "";
-      
+
       allfrw.forEach((player) => {
         frElement.appendChild(createPlayerCard(player, position, frw));
       });
-      
+
       midlElement.classList.add("hidden");
       goalElement.classList.add("hidden");
       frElement.classList.remove("hidden");
@@ -944,13 +1039,54 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     const cancelChoice = document.getElementById("cancelChoice");
-      cancelChoice.addEventListener("click", function () {
-        keeperschoice.classList.add("hidden");
-      });
+    cancelChoice.addEventListener("click", function () {
+      keeperschoice.classList.add("hidden");
+    });
     midlElement.classList.add("hidden");
     KP.classList.remove("hidden");
     frElement.classList.add("hidden");
     def.classList.add("hidden");
   });
 });
+
+let players = JSON.parse(localStorage.getItem("players")) || [];
+
+document
+  .getElementById("removePlayerButton")
+  .addEventListener("click", function () {
+    const removalForm = document.getElementById("removalForm");
+    const removalList = document.getElementById("removalList");
+    removalList.innerHTML = "";
+
+    players.forEach((player, index) => {
+      const playerItem = document.createElement("div");
+      playerItem.innerHTML = `
+            <input type="radio" name="playerToRemove" value="${index}"> ${player.name}
+        `;
+      removalList.appendChild(playerItem);
+    });
+
+    removalForm.classList.remove("hidden");
+  });
+
+document.getElementById("deleteButton").addEventListener("click", function () {
+  const selectedPlayer = document.querySelector(
+    'input[name="playerToRemove"]:checked'
+  );
+  if (selectedPlayer) {
+    const index = selectedPlayer.value;
+    players.splice(index, 1);
+    localStorage.setItem("players", JSON.stringify(players));
+    document.getElementById("removalForm").classList.add("hidden");
+
+  } else {
+    alert("Please select a player to remove.");
+  }
+});
+
+document
+  .getElementById("cancelRemoveButton")
+  .addEventListener("click", function () {
+    document.getElementById("removalForm").classList.add("hidden"); 
+  });
 
