@@ -58,19 +58,23 @@
         </div>
       </div>
     </div>
-      <div
-        class="w-[60%] px-[10px]"
-        style="
-          background-image: url('stadium_background.webp');
-          background-position: center;
-          background-attachment: fixed;
-        "
-      >
-        <div class="mt-10"> 
-          <select name="default(4-3-3)" id="lineup" class="w-[14%] cursor-pointer bg-[#6A669D] text-white rounded-full ">
-              <option value="4-3-3">4-3-3 (default)</option>
-              <option value="4-4-2">4-4-2</option>
-          </select>
+    <div
+      class="w-[60%] px-[10px]"
+      style="
+        background-image: url('stadium_background.webp');
+        background-position: center;
+        background-attachment: fixed;
+      "
+    >
+      <div class="mt-10">
+        <select
+          name="default(4-3-3)"
+          id="lineup"
+          class="w-[14%] cursor-pointer bg-[#6A669D] text-white rounded-full"
+        >
+          <option value="4-3-3">4-3-3 (default)</option>
+          <option value="4-4-2">4-4-2</option>
+        </select>
         <div class="">
           <div class="relative -mt-[100px]" id="fd">
             <div
@@ -80,15 +84,15 @@
               <span id="onevalue">RW</span>
             </div>
             <div
-            class="flex justify-center items-center w-20 h-20 left-[400px] top-8 rounded-full absolute font-bold bg-black bg-opacity-80 text-red-500 cursor-pointer hover:bg-red-500 hover:text-black hover:bg-opacity-80 FRW"
-            id="two" 
+              class="flex justify-center items-center w-20 h-20 left-[400px] top-8 rounded-full absolute font-bold bg-black bg-opacity-80 text-red-500 cursor-pointer hover:bg-red-500 hover:text-black hover:bg-opacity-80 FRW"
+              id="two"
             >
               <span id="twovalue">ST</span>
             </div>
             <div
               class="flex justify-center items-center w-20 h-20 left-[200px] top-14 rounded-full absolute font-bold bg-black bg-opacity-80 text-red-500 cursor-pointer hover:bg-red-500 hover:text-black hover:bg-opacity-80 FRW"
-              id="three"            
-              >
+              id="three"
+            >
               <span id="threevalue">LW</span>
             </div>
           </div>
@@ -97,19 +101,19 @@
             <div
               class="flex justify-center items-center w-20 h-20 left-[500px] top-[180px] rounded-full absolute font-bold bg-black bg-opacity-80 text-green-500 cursor-pointer hover:bg-green-500 hover:text-black hover:bg-opacity-80 MIL"
               id="four"
-              >
+            >
               <span id="fourv">CM</span>
             </div>
             <div
               class="flex justify-center items-center w-20 h-20 left-[725px] top-[250px] rounded-full absolute font-bold bg-black bg-opacity-80 text-green-500 cursor-pointer hover:bg-green-500 hover:text-black hover:bg-opacity-80 MIL"
               id="five"
-              >
+            >
               <span>DM</span>
             </div>
             <div
               class="flex justify-center items-center w-20 h-20 left-[930px] top-[180px] rounded-full absolute font-bold bg-black bg-opacity-80 text-green-500 cursor-pointer hover:bg-green-500 hover:text-black hover:bg-opacity-80 MIL"
               id="six"
-              >
+            >
               <span id="sixv">AM</span>
             </div>
           </div>
@@ -141,12 +145,15 @@
             <div
               class="flex justify-center items-center w-20 h-20 left-[725px] top-[550px] rounded-full absolute font-bold bg-black bg-opacity-80 text-yellow-500 cursor-pointer hover:bg-yellow-500 hover:text-black hover:bg-opacity-80"
               id="kp"
-              >
+            >
               <span>GK</span>
             </div>
           </div>
         </div>
-        <div class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center" id="choosePlyr">
+        <div
+          class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center"
+          id="choosePlyr"
+        >
           <div class="bg-white pb-5 shadow-lg">
             <div id="cancelChoice" class="cursor-pointer bg-[#0d4db5] h-[1px]">
               X
@@ -154,14 +161,10 @@
             <div class="bg-[#0d4db5] px-10 py-5 text-3xl text-white">
               Choose your player
             </div>
-            <div id="ChoiceKp">
-            </div>
-            <div id="ChoiceDF">
-            </div>
-            <div id="ChoiceMD">
-            </div>
-            <div id="ChoiceFR" class="relative">
-            </div>
+            <div id="ChoiceKp"></div>
+            <div id="ChoiceDF"></div>
+            <div id="ChoiceMD"></div>
+            <div id="ChoiceFR" class="relative"></div>
           </div>
         </div>
       </div>
@@ -170,30 +173,59 @@
       <div class="bg-[#6A669D] h-[60px] flex justify-center items-center mb-6">
         <p class="font-bold text-[#E5E3D4] text-2xl">gestion of players</p>
       </div>
-      <div id="playerList" class="overflow-y-auto max-h-[70vh]">
-      </div>
-      <div id="playerForm" class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center">
-        <div class="bg-white p-5 rounded shadow-lg overflow-y-auto" style="max-height: 90vh; width: 400px;">
+      <div id="playerList" class="overflow-y-auto max-h-[70vh]"></div>
+      <div
+        id="playerForm"
+        class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center"
+      >
+        <div
+          class="bg-white p-5 rounded shadow-lg overflow-y-auto"
+          style="max-height: 90vh; width: 400px"
+        >
           <h2 class="text-lg font-bold mb-4 text-center">Edit Player</h2>
-          
+
           <label for="playerName">Name:</label>
-          <input type="text" id="playerName" class="border rounded w-full mb-2" />
-      
+          <input
+            type="text"
+            id="playerName"
+            class="border rounded w-full mb-2"
+          />
+
           <label for="playerPhoto">Photo URL:</label>
-          <input type="text" id="playerPhoto" class="border rounded w-full mb-2" />
-      
+          <input
+            type="text"
+            id="playerPhoto"
+            class="border rounded w-full mb-2"
+          />
+
           <label for="playerNationality">Nationality:</label>
-          <input type="text" id="playerNationality" class="border rounded w-full mb-2" />
-      
+          <input
+            type="text"
+            id="playerNationality"
+            class="border rounded w-full mb-2"
+          />
+
           <label for="playerFlag">Flag URL:</label>
-          <input type="text" id="playerFlag" class="border rounded w-full mb-2" />
-      
+          <input
+            type="text"
+            id="playerFlag"
+            class="border rounded w-full mb-2"
+          />
+
           <label for="playerClub">Club:</label>
-          <input type="text" id="playerClub" class="border rounded w-full mb-2" />
-      
+          <input
+            type="text"
+            id="playerClub"
+            class="border rounded w-full mb-2"
+          />
+
           <label for="playerLogo">Club Logo URL:</label>
-          <input type="text" id="playerLogo" class="border rounded w-full mb-2" />
-      
+          <input
+            type="text"
+            id="playerLogo"
+            class="border rounded w-full mb-2"
+          />
+
           <label for="playerPosition">Position:</label>
           <select id="playerPosition" class="border rounded w-full mb-2">
             <option value="">Select Position</option>
@@ -210,43 +242,109 @@
             <option value="LW">LW</option>
             <option value="ST">ST</option>
           </select>
-      
+
           <div id="gkFields" class="hidden">
             <label for="playerRatingGK">Rating:</label>
-            <input type="number" id="playerRatingGK" class="border rounded w-full mb-2" />
+            <input
+              type="number"
+              id="playerRatingGK"
+              class="border rounded w-full mb-2"
+            />
             <label for="playerDiving">Diving:</label>
-            <input type="number" id="playerDiving" class="border rounded w-full mb-2" />
+            <input
+              type="number"
+              id="playerDiving"
+              class="border rounded w-full mb-2"
+            />
             <label for="playerHandling">Handling:</label>
-            <input type="number" id="playerHandling" class="border rounded w-full mb-2" />
+            <input
+              type="number"
+              id="playerHandling"
+              class="border rounded w-full mb-2"
+            />
             <label for="playerKicking">Kicking:</label>
-            <input type="number" id="playerKicking" class="border rounded w-full mb-2" />
+            <input
+              type="number"
+              id="playerKicking"
+              class="border rounded w-full mb-2"
+            />
             <label for="playerReflexes">Reflexes:</label>
-            <input type="number" id="playerReflexes" class="border rounded w-full mb-2" />
+            <input
+              type="number"
+              id="playerReflexes"
+              class="border rounded w-full mb-2"
+            />
             <label for="playerSpeed">Speed:</label>
-            <input type="number" id="playerSpeed" class="border rounded w-full mb-2" />
+            <input
+              type="number"
+              id="playerSpeed"
+              class="border rounded w-full mb-2"
+            />
             <label for="playerPositioning">Positioning:</label>
-            <input type="number" id="playerPositioning" class="border rounded w-full mb-2" />
+            <input
+              type="number"
+              id="playerPositioning"
+              class="border rounded w-full mb-2"
+            />
           </div>
-      
+
           <div id="outfieldFields" class="hidden">
             <label for="playerRating">Rating:</label>
-            <input type="number" id="playerRating" class="border rounded w-full mb-2" />
+            <input
+              type="number"
+              id="playerRating"
+              class="border rounded w-full mb-2"
+            />
             <label for="playerPace">Pace:</label>
-            <input type="number" id="playerPace" class="border rounded w-full mb-2" />
+            <input
+              type="number"
+              id="playerPace"
+              class="border rounded w-full mb-2"
+            />
             <label for="playerShooting">Shooting:</label>
-            <input type="number" id="playerShooting" class="border rounded w-full mb-2" />
+            <input
+              type="number"
+              id="playerShooting"
+              class="border rounded w-full mb-2"
+            />
             <label for="playerPassing">Passing:</label>
-            <input type="number" id="playerPassing" class="border rounded w-full mb-2" />
+            <input
+              type="number"
+              id="playerPassing"
+              class="border rounded w-full mb-2"
+            />
             <label for="playerDribbling">Dribbling:</label>
-            <input type="number" id="playerDribbling" class="border rounded w-full mb-2" />
+            <input
+              type="number"
+              id="playerDribbling"
+              class="border rounded w-full mb-2"
+            />
             <label for="playerDefending">Defending:</label>
-            <input type="number" id="playerDefending" class="border rounded w-full mb-2" />
+            <input
+              type="number"
+              id="playerDefending"
+              class="border rounded w-full mb-2"
+            />
             <label for="playerPhysical">Physical:</label>
-            <input type="number" id="playerPhysical" class="border rounded w-full mb-2" />
+            <input
+              type="number"
+              id="playerPhysical"
+              class="border rounded w-full mb-2"
+            />
           </div>
-      
-          <button id="savePlayer" class="bg-blue-500 text-white rounded px-4 py-2">Save</button>
-          <button id="closeForm" class="bg-red-500 text-white rounded px-4 py-2 ml-2">Close</button>
+
+          <button
+            id="savePlayer"
+            class="bg-blue-500 text-white rounded px-4 py-2"
+          >
+            Save
+          </button>
+          <button
+            id="closeForm"
+            class="bg-red-500 text-white rounded px-4 py-2 ml-2"
+          >
+            Close
+          </button>
         </div>
       </div>
       <div class="">
@@ -257,30 +355,60 @@
           Add A Player
           <img src="plus.png" alt="plus" class="ml-2 w-[15px] h-[15px]" />
         </div>
-        <div id="playerForm" class=" hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center">
-          <div class="bg-white p-5 rounded shadow-lg overflow-y-auto" style="max-height: 90vh; width: 400px;">
+        <div
+          id="playerForm"
+          class="hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center"
+        >
+          <div
+            class="bg-white p-5 rounded shadow-lg overflow-y-auto"
+            style="max-height: 90vh; width: 400px"
+          >
             <h2 class="text-lg font-bold mb-4 text-center">Add New Player</h2>
-            
+
             <label for="playerName">Name:</label>
-            <input type="text" id="playerName" class="border rounded w-full mb-2" />
-        
+            <input
+              type="text"
+              id="playerNameAdd"
+              class="border rounded w-full mb-2"
+            />
+
             <label for="playerPhoto">Photo URL:</label>
-            <input type="text" id="playerPhoto" class="border rounded w-full mb-2" />
-        
+            <input
+              type="text"
+              id="playerPhotoAdd"
+              class="border rounded w-full mb-2"
+            />
+
             <label for="playerNationality">Nationality:</label>
-            <input type="text" id="playerNationality" class="border rounded w-full mb-2" />
-        
+            <input
+              type="text"
+              id="playerNationalityAdd"
+              class="border rounded w-full mb-2"
+            />
+
             <label for="playerFlag">Flag URL:</label>
-            <input type="text" id="playerFlag" class="border rounded w-full mb-2" />
-        
+            <input
+              type="text"
+              id="playerFlagAdd"
+              class="border rounded w-full mb-2"
+            />
+
             <label for="playerClub">Club:</label>
-            <input type="text" id="playerClub" class="border rounded w-full mb-2" />
-        
+            <input
+              type="text"
+              id="playerClubAdd"
+              class="border rounded w-full mb-2"
+            />
+
             <label for="playerLogo">Club Logo URL:</label>
-            <input type="text" id="playerLogo" class="border rounded w-full mb-2" />
-        
-            <label for="playerPosition">Position:</label> 
-            <select id="playerPosition" class="border rounded w-full mb-2">
+            <input
+              type="text"
+              id="playerLogoAdd"
+              class="border rounded w-full mb-2"
+            />
+
+            <label for="playerPosition">Position:</label>
+            <select id="playerPositionAdd" class="border rounded w-full mb-2">
               <option value="">Select Position</option>
               <option value="GK">GK</option>
               <option value="CB">CB</option>
@@ -293,60 +421,130 @@
               <option value="LW">LW</option>
               <option value="ST">ST</option>
             </select>
-        
-            <div id="gkFields" class="hidden">
+
+            <div id="gkFieldsAdd" class="hidden">
               <label for="playerRatingGK">Rating:</label>
-              <input type="number" id="playerRatingGK" class="border rounded w-full mb-2" />
+              <input
+                type="number"
+                id="playerRatingGKAdd"
+                class="border rounded w-full mb-2"
+              />
               <label for="playerDiving">Diving:</label>
-              <input type="number" id="playerDiving" class="border rounded w-full mb-2" />
+              <input
+                type="number"
+                id="playerDivingAdd"
+                class="border rounded w-full mb-2"
+              />
               <label for="playerHandling">Handling:</label>
-              <input type="number" id="playerHandling" class="border rounded w-full mb-2" />
+              <input
+                type="number"
+                id="playerHandlingAdd"
+                class="border rounded w-full mb-2"
+              />
               <label for="playerKicking">Kicking:</label>
-              <input type="number" id="playerKicking" class="border rounded w-full mb-2" />
+              <input
+                type="number"
+                id="playerKickingAdd"
+                class="border rounded w-full mb-2"
+              />
               <label for="playerReflexes">Reflexes:</label>
-              <input type="number" id="playerReflexes" class="border rounded w-full mb-2" />
+              <input
+                type="number"
+                id="playerReflexesAdd"
+                class="border rounded w-full mb-2"
+              />
               <label for="playerSpeed">Speed:</label>
-              <input type="number" id="playerSpeed" class="border rounded w-full mb-2" />
+              <input
+                type="number"
+                id="playerSpeedAdd"
+                class="border rounded w-full mb-2"
+              />
               <label for="playerPositioning">Positioning:</label>
-              <input type="number" id="playerPositioning" class="border rounded w-full mb-2" />
+              <input
+                type="number"
+                id="playerPositioningAdd"
+                class="border rounded w-full mb-2"
+              />
             </div>
-        
-            <div id="outfieldFields" class="hidden">
+
+            <div id="outfieldFieldsAdd" class="hidden">
               <label for="playerRating">Rating:</label>
-              <input type="number" id="playerRating" class="border rounded w-full mb-2" />
+              <input
+                type="number"
+                id="playerRating"
+                class="border rounded w-full mb-2"
+              />
               <label for="playerPace">Pace:</label>
-              <input type="number" id="playerPace" class="border rounded w-full mb-2" />
+              <input
+                type="number"
+                id="playerPace"
+                class="border rounded w-full mb-2"
+              />
               <label for="playerShooting">Shooting:</label>
-              <input type="number" id="playerShooting" class="border rounded w-full mb-2" />
+              <input
+                type="number"
+                id="playerShooting"
+                class="border rounded w-full mb-2"
+              />
               <label for="playerPassing">Passing:</label>
-              <input type="number" id="playerPassing" class="border rounded w-full mb-2" />
+              <input
+                type="number"
+                id="playerPassing"
+                class="border rounded w-full mb-2"
+              />
               <label for="playerDribbling">Dribbling:</label>
-              <input type="number" id="playerDribbling" class="border rounded w-full mb-2" />
+              <input
+                type="number"
+                id="playerDribbling"
+                class="border rounded w-full mb-2"
+              />
               <label for="playerDefending">Defending:</label>
-              <input type="number" id="playerDefending" class="border rounded w-full mb-2" />
+              <input
+                type="number"
+                id="playerDefending"
+                class="border rounded w-full mb-2"
+              />
               <label for="playerPhysical">Physical:</label>
-              <input type="number" id="playerPhysical" class="border rounded w-full mb-2" />
+              <input
+                type="number"
+                id="playerPhysical"
+                class="border rounded w-full mb-2"
+              />
             </div>
-        
-            <button id="savePlayer" class="bg-green-500 text-white px-4 py-2 rounded">Save</button>
-            <button id="cancel" class="bg-red-500 text-white px-4 py-2 rounded ml-2">Cancel</button>
+
+            <button
+              id="savePlayers"
+              class="bg-green-500 text-white px-4 py-2 rounded"
+            >
+              Save
+            </button>
+            <button
+              id="cancel"
+              class="bg-red-500 text-white px-4 py-2 rounded ml-2"
+            >
+              Cancel
+            </button>
           </div>
         </div>
         <div
-          class="bg-[#D9D9D9] py-[7px] flex justify-center font-semibold my-1"
+          class="bg-[#D9D9D9] py-[7px] flex justify-center cursor-pointer font-semibold my-1"
           id="mod"
         >
           modify a player
           <img src="edit.png" alt="plus" class="ml-2 w-[15px] h-[15px]" />
         </div>
         <div
-          class="bg-[#D9D9D9] py-[7px] flex justify-center font-semibold my-1"
-          id="removeSection"
+          class="bg-[#D9D9D9] py-[7px] flex justify-center font-semibold my-1 cursor-pointer"
+          id="removePlayerButton"
         >
           remove
-          <img src="remove.png" alt="plus" class="ml-2 w-[15px] h-[15px]"/>
-          <div id="playerListrm" class="overflow-y-auto max-h-[70vh]">
-          </div>
+          <img src="remove.png" alt="plus" class="ml-2 w-[15px] h-[15px]" />
+        </div>
+        <div class="removal-form hidden bg-white" id="removalForm">
+          <h3>Select a player to remove:</h3>
+          <div id="removalList"></div>
+          <button id="deleteButton" class="text-red-700">Delete</button>
+          <button id="cancelRemoveButton" class="text-green-700">Cancel</button>
         </div>
       </div>
     </div>
